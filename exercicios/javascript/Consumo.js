@@ -1,16 +1,31 @@
-"""
+/*
 ====================================
-EXERCÍCIO 3 - CONVERSÃO DE TEMPERATURA
+EXERCÍCIO 1 - CONSUMO DE COMBUSTÍVEL
 ====================================
 
-Peça uma temperatura em Celsius e
-converta para Fahrenheit.
-"""
+Peça a distância percorrida e a quantidade
+de combustível consumida. Calcule o consumo médio.
+*/
 
-# double (float) -> temperatura em Celsius
-celsius = float(input("Digite a temperatura em Celsius: "))
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
-# double (float) -> temperatura convertida
-fahrenheit = (celsius * 9 / 5) + 32
+readline.question("Digite a distância percorrida (km): ", (distanciaResp) => {
+    readline.question("Digite os litros consumidos: ", (litrosResp) => {
+        
+        // double -> distância percorrida
+        let distancia = parseFloat(distanciaResp);
 
-print("Temperatura em Fahrenheit: " + str(fahrenheit))
+        // double -> combustível consumido
+        let litros = parseFloat(litrosResp);
+
+        // double -> cálculo do consumo médio
+        let consumo = distancia / litros;
+
+        console.log("Consumo médio: " + consumo + " km/l");
+
+        readline.close();
+    });
+});
